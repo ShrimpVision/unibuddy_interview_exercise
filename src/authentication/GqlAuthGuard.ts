@@ -17,6 +17,7 @@ export class GqlAuthGuard extends AuthGuard('jwt') implements CanActivate {
       throw new AuthenticationError('UNAUTHENTICATED');
     }
     return Promise.resolve(result);
+    // return true
   }
 
   getRequest(context: ExecutionContext) {

@@ -16,6 +16,26 @@ registerEnumType(GifType, {
   name: 'GifType',
 });
 
+// DEV: ADDED THIS
+export enum TagType {
+  subTopic = 'subTopic',
+}
+
+// DEV: ADDED THIS
+registerEnumType(TagType, {
+  name: 'TagType',
+});
+
+// DEV: ADDED THIS
+@InputType()
+export class TagDto {
+  @Field()
+  id: ObjectID;
+
+  @Field(() => TagType)
+  tag: TagType;
+}
+
 @InputType()
 export class ReplyMessageDto {
   @Field()

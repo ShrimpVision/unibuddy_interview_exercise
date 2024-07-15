@@ -127,4 +127,36 @@ describe('MessageData', () => {
       expect(retrievedMessage.deleted).toEqual(true);
     });
   });
+
+  describe('updateTag', () => {
+    it('successfully updates the tag array', async () => {
+      // create a new conversation
+      console.log("***START***");
+      console.log("***Tag Functionality***");
+      const conversationId = new ObjectID();
+      console.log("ConversationId: ", conversationId);
+      // create a new message within the newly created conversation
+      const message = await messageData.create(
+        { conversationId, text: 'Message to tag' },
+        senderId,
+      );
+      console.log("Message: ", message);
+
+      // Check that the tag array is empty
+      expect(message.deleted).toEqual(true);
+      expect(message.tags).toEqual(true);
+
+      console.log("***START***")
+      // Add a tag to the tag array
+
+      // Check that the tag array contains the newly added tag
+
+      // const deletedMessage = await messageData.delete(new ObjectID(message.id));
+      // expect(deletedMessage.deleted).toEqual(true);
+
+      // And that is it now deleted
+      // const retrievedMessage = await messageData.getMessage(message.id.toHexString())
+      // expect(retrievedMessage.deleted).toEqual(true);
+    });
+  });
 });
